@@ -43,18 +43,16 @@ namespace QueryLibrary.Repositories
             }
         }
 
-        // Delete Note in Archive to Owner
-        public static void DeleteAllNotesByOwner(string owner)
+        // Delete All Notes in Archive
+        public static bool DeleteAllNotes()
         {
             using (IDbConnection connection = new SqlConnection(_connectionString))
             {
                 foreach (Archive item in connection.GetAll<Archive>())
                 {
-                    if (item.Owner == owner)
-                    {
-                        connection.Delete<Archive>(new Archive { Owner = owner });
-                    }
+                    return connection.DeleteAll<Archive>();
                 }
+                return false;
             }
         }
     }
