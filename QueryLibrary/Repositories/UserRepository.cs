@@ -19,7 +19,7 @@ namespace QueryLibrary.Repositories
         }
 
         // Get User for "Id"
-        public static User GetUserToId(int id) 
+        public static User GetUserById(int id) 
         {
             using (IDbConnection connection = new SqlConnection(_connectionString))
             {
@@ -72,6 +72,19 @@ namespace QueryLibrary.Repositories
                     {
                         return true;
                     }
+                }
+            }
+            return false;
+        }
+
+        // User Token valid check
+        public static bool UserTokenValidCheck(string token)
+        {
+            using (IDbConnection connection = new SqlConnection(_connectionString))
+            {
+                foreach (var item in connection.GetAll<User>())
+                {
+                    if (item.Token == token) return true;
                 }
             }
             return false;
