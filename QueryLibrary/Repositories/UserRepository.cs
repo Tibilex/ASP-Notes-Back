@@ -50,7 +50,7 @@ namespace QueryLibrary.Repositories
         {
             using (IDbConnection connection = new SqlConnection(_connectionString))
             {
-                foreach (var item in connection.GetAll<User>())
+                foreach (User item in connection.GetAll<User>())
                 {
                     if (item.Name == name && BCrypt.Net.BCrypt.Verify(password, item.Password))
                     { 
@@ -66,7 +66,7 @@ namespace QueryLibrary.Repositories
         {
             using (IDbConnection connection = new SqlConnection(_connectionString))
             {
-                foreach (var item in connection.GetAll<User>())
+                foreach (User item in connection.GetAll<User>())
                 {
                     if (item.Name == name && item.Token == token)
                     {
