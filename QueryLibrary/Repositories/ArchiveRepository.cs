@@ -7,7 +7,7 @@ namespace QueryLibrary.Repositories
 {
     public class ArchiveRepository
     {
-        private static string _connectionString = "Server=DESKTOP-440KLQF\\SQLEXPRESS;Database=ASP_DataBase;Trusted_Connection=True;";
+        private static string _connectionString = "Data Source=SQL8001.site4now.net,1433;Initial Catalog=db_a8dfe9_aspdb;User Id=db_a8dfe9_aspdb_admin;Password=Bozic901;";
 
         // Get All Notes in Archive
         public static IEnumerable<Archive> GetAll()
