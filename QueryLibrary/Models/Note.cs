@@ -1,11 +1,18 @@
-﻿namespace QueryLibrary.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace QueryLibrary.Models
 {
     public class Note
     {
+        [Key]
         public int Id { get; set; }
-        public string Owner { get; set; }
-        public string Label { get; set; }
-        public string Text { get; set; }
-        public DateTime CreatedTime { get; set; }
+
+        [Required]
+        [MaxLength(100)]
+        public string? Label { get; set; }
+
+        [Required]
+        [MaxLength(int.MaxValue)]
+        public string? Text { get; set; }
     }
 }
